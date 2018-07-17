@@ -1,0 +1,17 @@
+Package: FRED
+Type: Package
+Title: FRED Package functions
+Version: 0.1
+Date: 2018-06-09
+Author: Freddy F. Tapia C.  [aut, cre]
+Maintainer: Freddy F. Tapia C. <freddy.tapia.28@gmail.com>
+Description: Provided functions to work with FARS data.
+Depends: R (>= 3.5.0)
+License: GPL (>= 2)
+Imports: dplyr, maps, readr, tidyr, magrittr
+LazyData: TRUE
+RoxygenNote: 6.0.1
+Suggests: knitr,
+    rmarkdown,
+    testthat
+VignetteBuilder: knitr

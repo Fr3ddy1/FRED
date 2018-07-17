@@ -1,0 +1,85 @@
+---
+output:
+  md_document:
+    variant: markdown_github
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+# FARS
+
+The goal of FARS is to provide functions that work with data from the US National Highway Traffic Safety Administration's Fatality Analysis Reporting System (F.A.R.S.), which is a nationwide census providing the American public yearly data regarding fatal injuries suffered in motor vehicle traffic crashes.
+
+## fars_read function
+
+This function allows to read a compressed (.bz2) or a csv file. It counts with only one argument "filename" which is a caracter that contains the name of the file with its respective extension. This function returns the read data in a "dataframe", "tbl_df", "tbl" format. And it will generate an error if the filemane is wrong or have a wrong extension.
+
+```{r  echo = FALSE}
+library(FRED)
+```
+
+```{r}
+fars_read(make_filename(2013))
+
+```
+
+
+## make_filename function
+
+This function allows to create a character with a filename, that will have a
+"csv.bz2" extension. The filename will always be "accident_*.csv.bz2", with
+the only diference that "*" will be replace by the entered year. This function has only one parameter named "year" an integer that represent a year.This function will  return a caracter with a filename. It will generate an warning message if the parameter "year" is a character instead a integer.
+
+
+```{r}
+make_filename(2013)
+
+
+```
+
+
+## fars_read_years function
+
+This function allows to select the variable "MONTH" and "YEAR" from the data for the accidents that happend in the year or years entered. The argument of the function is "years" an integer that represent a year or years. This function will return a list with the variable "MONTH" and "YEAR" for the year or years entered.
+It will generate an warning message if the year or years entered does not exists in the database.
+
+
+```{r}
+fars_read_years(c(2013,2014))
+fars_read_years(2013)
+
+```
+
+
+
+## fars_summarize_years function
+
+This function allows to generate a summary of the accidents that happend in a specific year or years. The parameter "years" is an integer that represent a year or years. This function will return a summary for every month of every year in a "dataframe", "tbl_df", "tbl" format. It will generate an warning message if the year or years entered does not exists in the database.
+
+
+```{r}
+fars_summarize_years(c(2013,2014))
+fars_summarize_years(c(2013,2015))
+
+
+```
+
+
+
+## fars_map_state function
+
+This function will allow to plot the longitude and latitude of the accidents that
+happend in a specific state in a specific year. This function counts with two parameters "state.num" and "year", the first ones indicates an integer that represent the number of a state, and the second one is an integer that represent a year. This function returns a graph where can be seen the location (latitude and
+longitude) of the accident that happend in the state in the year entered. It will generate an error if the year or state does not exists in the database.
+
+```{r}
+fars_map_state(26,2013)
+```
