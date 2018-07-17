@@ -1,4 +1,6 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+[![Travis-CI Build Status](https://travis-ci.org/Fr3ddy1/FRED.svg?branch=master)](https://travis-ci.org/Fr3ddy1/FRED) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/Fr3ddy1/FRED?branch=master&svg=true)](https://ci.appveyor.com/project/Fr3ddy1/FRED)
+
 FARS
 ====
 
